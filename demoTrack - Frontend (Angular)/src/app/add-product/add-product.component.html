@@ -1,0 +1,53 @@
+<div class="container-fluid align-items-center" style="margin-top:2vh;">
+  <form [formGroup]="addProduct" (ngSubmit)="onSubmit()">
+    <div class="col-sm-12 d-flex">
+      <mat-card class="card" style="border: thick black;margin: auto;">
+        <mat-card-header style="justify-content: center">
+          <mat-card-title>Add New Product</mat-card-title>
+        </mat-card-header>
+        <hr/>
+        <mat-card-content style="text-align: center">
+          <div>
+            <mat-form-field style="width:100%" appearance="outline">
+              <mat-label>Product Group</mat-label>
+              <input matInput type="text" placeholder="Product Group" formControlName="productGroup" id="productGroup" required/>
+              <mat-error *ngIf="this.addProduct.get('productGroup').hasError('required')">Please Enter a Product Group !</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field style="width:100%" appearance="outline">
+              <mat-label>Product Line</mat-label>
+              <input matInput type="text" placeholder="Product Line" formControlName="productLine" id="productLine" required/>
+              <mat-error *ngIf="this.addProduct.get('productLine').hasError('required')">Please Enter a Product Line !</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field style="width:100%" appearance="outline">
+              <mat-label>Product</mat-label>
+              <input matInput type="text" placeholder="Product" formControlName="product" id="product" required/>
+              <mat-error *ngIf="this.addProduct.get('product').hasError('required')">Please Enter Product !</mat-error>
+            </mat-form-field>
+          </div>
+          <div style="text-align: center;color: red;align-self: center;" *ngIf="error">{{error}}</div>
+        </mat-card-content>
+        <hr/>
+        <mat-card-actions style="text-align: center">
+          <button type="submit" class="btn btn-success">Add Product</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </form>
+</div>
+
+<div id="overlay" style="justify-content: center; align-items: center; height: 100vh">
+  <span id="nav" *ngIf="saveInProgress">
+    <div class="spinner-border text-secondary">
+    </div>
+  </span>
+  &nbsp;
+  <span id="nav1" *ngIf="saveInProgress">
+    <div class="submit-message" style="color: white;">
+      <b>Saving...</b>
+    </div>
+  </span>
+</div>
