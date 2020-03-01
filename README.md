@@ -26,13 +26,13 @@ This will also help the company to analyze the customer’s response.
 
 ## An Overview of the application flow
 
-	-Using demoTrack, a sales executive can generate a request for an illustration/demo providing all the relevant details pertaining to the demo and he will be provided with a request number for future reference
-	-Approver/manager will be digitally notified of the request generated and he/she can verify the details and decide whether to approve the demo or not.
-	-Sales executive will be digitally notified of the approver’s decision
-	-If the demo is approved, the sales executive can proceed with the demo
-	-After the demo is given, sales executive is bound to fill a feedback for that demo before he/she can request for another demo. This feedback will help him improve.
-	-Executives, Managers and Admin can generate reports in excel format (records can be filtered based on requirement)
-	-Administrator can keep track of the demos, add new users and new products using UI.
+- Using demoTrack, a sales executive can generate a request for an illustration/demo providing all the relevant details pertaining to the demo and he will be provided with a request number for future reference
+- Approver/manager will be digitally notified of the request generated and he/she can verify the details and decide whether to approve the demo or not.
+- Sales executive will be digitally notified of the approver’s decision
+- If the demo is approved, the sales executive can proceed with the demo
+- After the demo is given, sales executive is bound to fill a feedback for that demo before he/she can request for another demo. This feedback will help him improve.
+- Executives, Managers and Admin can generate reports in excel format (records can be filtered based on requirement)
+- Administrator can keep track of the demos, add new users and new products using UI.
 
 ## Technology Stack Used:
 	-Angular (v8.3.23)
