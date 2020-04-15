@@ -1,4 +1,6 @@
 # demoTrack
+<img src="Logo.png" width="150" height="100" alt="Logo">
+
 A Cloud based Web Application
 
 ## Problem Statement: 
@@ -39,7 +41,7 @@ This will also help the company to analyze the customer’s response.
 	-Spring Boot
 	-MySQL
 	-Azure Cloud
-
+<img src="Architecture.png" alt="Architecture">
 ## Coding Standards: 
 
     -Modularity
