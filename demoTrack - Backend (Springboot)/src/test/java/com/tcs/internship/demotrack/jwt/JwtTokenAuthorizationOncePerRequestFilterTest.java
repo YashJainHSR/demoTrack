@@ -13,7 +13,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -25,7 +24,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-
 
 import io.jsonwebtoken.ExpiredJwtException;
 
@@ -50,13 +48,13 @@ public class JwtTokenAuthorizationOncePerRequestFilterTest {
 	@InjectMocks
 	JwtTokenAuthorizationOncePerRequestFilter jwtTokenAuthorizationOncePerRequestFilter;
 	
-	@BeforeClass
-	public static void setHeader() {
-		JwtTokenAuthorizationOncePerRequestFilter.setTokenHeader("Authorization");
-	}
 	
+
 	@Test
 	public void doFilterInternalTest1() throws ServletException, IOException {
+		JwtTokenAuthorizationOncePerRequestFilter spyJwtTokenAuthorizationOncePerRequestFilter = Mockito
+				.spy(jwtTokenAuthorizationOncePerRequestFilter);
+		Mockito.doReturn("Authorization").when(spyJwtTokenAuthorizationOncePerRequestFilter).getTokenHeader();
 		JwtTokenUtil jwtTokenUtilNew = new JwtTokenUtil("mySecret",(long)604800);
 		List<JwtUserDetails> UserList = new ArrayList<>();
 		UserList.add(new JwtUserDetails((long) 1, "1838900",
@@ -69,11 +67,14 @@ public class JwtTokenAuthorizationOncePerRequestFilterTest {
 		when(request.getHeader(Mockito.anyString())).thenReturn(token);
 		when(jwtInMemoryUserDetailsService.loadUserByUsername(Mockito.anyString())).thenReturn(userDetails);
 		when(jwtTokenUtil.getUsernameFromToken(Mockito.anyString())).thenReturn("1838900");
-		assertDoesNotThrow(() -> {jwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
+		assertDoesNotThrow(() -> {spyJwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
 	}
 	
 	@Test
 	public void doFilterInternalTest6() throws ServletException, IOException {
+		JwtTokenAuthorizationOncePerRequestFilter spyJwtTokenAuthorizationOncePerRequestFilter = Mockito
+				.spy(jwtTokenAuthorizationOncePerRequestFilter);
+		Mockito.doReturn("Authorization").when(spyJwtTokenAuthorizationOncePerRequestFilter).getTokenHeader();
 		JwtTokenUtil jwtTokenUtilNew = new JwtTokenUtil("mySecret",(long)604800);
 		List<JwtUserDetails> UserList = new ArrayList<>();
 		UserList.add(new JwtUserDetails((long) 1, "1838900",
@@ -90,11 +91,14 @@ public class JwtTokenAuthorizationOncePerRequestFilterTest {
 		when(request.getRequestURL()).thenReturn(new StringBuffer("Testing"));
 		when(request.getHeader(Mockito.anyString())).thenReturn(token);
 		when(jwtTokenUtil.getUsernameFromToken(Mockito.anyString())).thenReturn("1838900");
-		assertDoesNotThrow(() -> {jwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
+		assertDoesNotThrow(() -> {spyJwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
 	}
 	
 	@Test
 	public void doFilterInternalTest7() throws ServletException, IOException {
+		JwtTokenAuthorizationOncePerRequestFilter spyJwtTokenAuthorizationOncePerRequestFilter = Mockito
+				.spy(jwtTokenAuthorizationOncePerRequestFilter);
+		Mockito.doReturn("Authorization").when(spyJwtTokenAuthorizationOncePerRequestFilter).getTokenHeader();
 		when(request.getRequestURL()).thenReturn(new StringBuffer("Testing"));
 		JwtTokenUtil jwtTokenUtilNew = new JwtTokenUtil("mySecret",(long)604800);
 		List<JwtUserDetails> UserList = new ArrayList<>();
@@ -109,11 +113,14 @@ public class JwtTokenAuthorizationOncePerRequestFilterTest {
 		SecurityContextHolder.getContext().setAuthentication(null);
 		when(jwtInMemoryUserDetailsService.loadUserByUsername("1838900")).thenReturn(userDetails);
 		when(jwtTokenUtil.validateToken(token.substring(7), userDetails)).thenReturn(true);
-		assertDoesNotThrow(() -> {jwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
+		assertDoesNotThrow(() -> {spyJwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
 	}
 	
 	@Test
 	public void doFilterInternalTest2() throws ServletException, IOException {
+		JwtTokenAuthorizationOncePerRequestFilter spyJwtTokenAuthorizationOncePerRequestFilter = Mockito
+				.spy(jwtTokenAuthorizationOncePerRequestFilter);
+		Mockito.doReturn("Authorization").when(spyJwtTokenAuthorizationOncePerRequestFilter).getTokenHeader();
 		JwtTokenUtil jwtTokenUtilNew = new JwtTokenUtil("mySecret",(long)604800);
 		List<JwtUserDetails> UserList = new ArrayList<>();
 		UserList.add(new JwtUserDetails((long) 1, "1838900",
@@ -125,11 +132,14 @@ public class JwtTokenAuthorizationOncePerRequestFilterTest {
 		when(request.getRequestURL()).thenReturn(new StringBuffer("Testing"));
 		when(request.getHeader(Mockito.anyString())).thenReturn(token);
 		when(jwtTokenUtil.getUsernameFromToken(Mockito.anyString())).thenThrow(IllegalArgumentException.class);
-		assertDoesNotThrow(() -> {jwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
+		assertDoesNotThrow(() -> {spyJwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
 	}
 	
 	@Test
 	public void doFilterInternalTest3() throws ServletException, IOException {
+		JwtTokenAuthorizationOncePerRequestFilter spyJwtTokenAuthorizationOncePerRequestFilter = Mockito
+				.spy(jwtTokenAuthorizationOncePerRequestFilter);
+		Mockito.doReturn("Authorization").when(spyJwtTokenAuthorizationOncePerRequestFilter).getTokenHeader();
 		JwtTokenUtil jwtTokenUtilNew = new JwtTokenUtil("mySecret",(long)604800);
 		List<JwtUserDetails> UserList = new ArrayList<>();
 		UserList.add(new JwtUserDetails((long) 1, "1838900",
@@ -142,20 +152,26 @@ public class JwtTokenAuthorizationOncePerRequestFilterTest {
 		when(request.getHeader(Mockito.anyString())).thenReturn(token);
 		//when(jwtInMemoryUserDetailsService.loadUserByUsername(Mockito.anyString())).thenReturn(userDetails);
 		when(jwtTokenUtil.getUsernameFromToken(Mockito.anyString())).thenThrow(ExpiredJwtException.class);
-		assertDoesNotThrow(() -> {jwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
+		assertDoesNotThrow(() -> {spyJwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
 	}
 	
 	@Test
 	public void doFilterInternalTest4() throws ServletException, IOException {
+		JwtTokenAuthorizationOncePerRequestFilter spyJwtTokenAuthorizationOncePerRequestFilter = Mockito
+				.spy(jwtTokenAuthorizationOncePerRequestFilter);
+		Mockito.doReturn("Authorization").when(spyJwtTokenAuthorizationOncePerRequestFilter).getTokenHeader();
 		when(request.getRequestURL()).thenReturn(new StringBuffer("Testing"));
 		when(request.getHeader(Mockito.anyString())).thenReturn("");
-		assertDoesNotThrow(() -> {jwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
+		assertDoesNotThrow(() -> {spyJwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
 	}
 	@Test
 	public void doFilterInternalTest5() throws ServletException, IOException {
+		JwtTokenAuthorizationOncePerRequestFilter spyJwtTokenAuthorizationOncePerRequestFilter = Mockito
+				.spy(jwtTokenAuthorizationOncePerRequestFilter);
+		Mockito.doReturn("Authorization").when(spyJwtTokenAuthorizationOncePerRequestFilter).getTokenHeader();
 		when(request.getRequestURL()).thenReturn(new StringBuffer("Testing"));
 		when(request.getHeader(Mockito.anyString())).thenReturn(null);
-		assertDoesNotThrow(() -> {jwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
+		assertDoesNotThrow(() -> {spyJwtTokenAuthorizationOncePerRequestFilter.doFilterInternal(request, response, chain);});
 	}
 	
 
