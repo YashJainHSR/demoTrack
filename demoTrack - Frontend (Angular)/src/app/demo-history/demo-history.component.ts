@@ -9,7 +9,6 @@ import {User} from '../_models/user';
 import {Role} from '../_models/role.enum';
 import {MatDialog} from '@angular/material/dialog';
 import {RequestDetailsDialogComponent} from '../request-details-dialog/request-details-dialog.component';
-import saveAs from 'file-saver';
 
 @Component({
   selector: 'app-demo-history',
@@ -94,9 +93,8 @@ export class DemoHistoryComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
     const now = moment().format('YYYY-MM-DD HH:mm:ss');
     /* save to file */
-    // XLSX.writeFile(wb, 'Demo History Report ' + now + '.xlsx');
-    const file = XLSX.write(wb, {bookType: 'xlsx', bookSST: false, type: 'array'});
-    saveAs(new Blob([file], {type: 'application/octet-stream'}), 'Demo History Report ' + now + '.xlsx');
+    XLSX.writeFile(wb, 'Demo History Report ' + now + '.xlsx');
+
   }
   openDialog(id: number): void {
     const dialogRef = this.dialog.open(RequestDetailsDialogComponent, {

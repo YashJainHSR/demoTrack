@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'http://localhost:8080'
-  apiUrl: 'https://demo-track-spring-boot.azurewebsites.net'
+  apiUrl: 'http://localhost:8080' // API service base URL
 };
 
 /*

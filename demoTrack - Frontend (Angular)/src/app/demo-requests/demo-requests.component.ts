@@ -12,7 +12,6 @@ import {MailService} from '../_services/mail.service';
 import {CommonMethodsService} from '../_services/common-methods.service';
 import {MatDialog} from '@angular/material/dialog';
 import {RequestDetailsDialogComponent} from '../request-details-dialog/request-details-dialog.component';
-import saveAs from 'file-saver';
 
 @Component({
   selector: 'app-demo-feedback',
@@ -97,9 +96,7 @@ export class DemoRequestsComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
     const now = moment().format('YYYY-MM-DD HH:mm:ss');
     /* save to file */
-    // const file = XLSX.write(wb, 'Report ' + now + '.xlsx');
-    const file = XLSX.write(wb, {bookType: 'xlsx', bookSST: false, type: 'array'});
-    saveAs(new Blob([file], {type: 'application/octet-stream'}), 'Report ' + now + '.xlsx');
+    XLSX.writeFile(wb, 'Report ' + now + '.xlsx');
   }
 
   provideFeedback(requestNumber: string) {

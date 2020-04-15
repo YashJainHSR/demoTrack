@@ -1,5 +1,5 @@
 <div id="topNav" class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <img src="assets/logo.png" style="width:45px;">
+  <img [src]="imgURL" style="width:45px;">
   <a class="navbar-brand" [routerLink]="['/']">demoTrack</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
           [attr.aria-expanded]="isExpanded" (click)="toggle()">
