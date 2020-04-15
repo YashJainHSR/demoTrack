@@ -1,5 +1,5 @@
 # demoTrack
-<img src="Logo.png" width="150" height="100" alt="Logo">
+<img src="Logo.png" width="150" height="100" alt="Logo" />
 
 A Cloud based Web Application
 
@@ -41,9 +41,9 @@ This will also help the company to analyze the customer’s response.
 	-Spring Boot
 	-MySQL
 	-Azure Cloud
-<img src="Architecture.png" alt="Architecture">
-## Coding Standards: 
+<img src="Architecture.png" alt="Architecture" />
 
+## Coding Standards: 
     -Modularity
     -Descriptive name conventions (full words – camel casing) (e.g. demoRequest)
     -Component/Class names represents its purpose (e.g. DemoRequestController, LoginComponent, AuthenticationService)
@@ -66,3 +66,6 @@ This will also help the company to analyze the customer’s response.
 	-Authorization Guard
     -JWT Token Interception
     -Error Interception
+
+## API Documentation:
+ - https://app.swaggerhub.com/apis-docs/YashJainHSR/DemoTrack/1.0.0
