@@ -40,6 +40,10 @@ public class UserCredentials {
 
 	private String token;
 
+	public UserCredentials() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public UserCredentials(long id, String username, String password, String name, String email, String role,
 			String token) {

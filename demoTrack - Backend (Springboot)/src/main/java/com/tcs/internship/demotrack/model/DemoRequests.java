@@ -79,6 +79,12 @@ public class DemoRequests {
 	private String status;
 	@NotNull
 	private String authority;
+	
+	public DemoRequests() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 
 	public DemoRequests(Long id, String requestNumber, String requestTimestamp, String requesterUserId,
 			String requesterName, String customerName, String customerEmail, String customerLocation,

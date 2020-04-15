@@ -29,8 +29,12 @@ public class JwtTokenUtil implements Serializable {
 
 	@Value("${jwt.token.expiration.in.seconds}")
 	private Long expiration;
-
 	
+	public JwtTokenUtil() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public JwtTokenUtil(String secret, Long expiration) {
 		super();
 		this.secret = secret;

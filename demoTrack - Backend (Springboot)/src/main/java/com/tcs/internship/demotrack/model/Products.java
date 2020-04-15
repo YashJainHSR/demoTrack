@@ -25,6 +25,11 @@ public class Products {
 	@NotBlank(message = "Product cannot be blank")
 	private String product;
 
+	public Products() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Products(Long id, String productGroup, String productLine, String product) {
 		super();
 		this.id = id;
