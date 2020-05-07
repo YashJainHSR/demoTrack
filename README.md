@@ -36,34 +36,34 @@ This will also help the company to analyze the customer’s response.
     - Administrator can keep track of the demos, add new users and new products using UI.
 
 ## Technology Stack Used:
-	-Angular (v8.3.23)
-	-Spring Boot
-	-MySQL
-	-Azure Cloud
+	- Angular (v8.3.23)
+	- Spring Boot
+	- MySQL
+	- Azure Cloud
 <img src="Architecture.png" alt="Architecture" />
 
 ## Coding Standards: 
-    -Modularity
-    -Descriptive name conventions (full words – camel casing) (e.g. demoRequest)
-    -Component/Class names represents its purpose (e.g. DemoRequestController, LoginComponent, AuthenticationService)
-	-Encapsulation
-    -Proper Indentation
-    -Proper response status codes (e.g. 201, 401…)
-	-Server-Side Validations (e.g. Email format, password requirements...)
-    -Error/Exception Handling (e.g. Null Pointer exception on User Not found)
-    -Custom Error Message (e.g. User Already Exists, Invalid Credentials…)
-	-Client-Side Validations (e.g. Mandatory Requirements, email format…)
-    -Responsive Application
-    -Display of Validation errors
+    - Modularity
+    - Descriptive name conventions (full words – camel casing) (e.g. demoRequest)
+    - Component/Class names represents its purpose (e.g. DemoRequestController, LoginComponent, AuthenticationService)
+	- Encapsulation
+    - Proper Indentation
+    - Proper response status codes (e.g. 201, 401…)
+	- Server-Side Validations (e.g. Email format, password requirements...)
+    - Error/Exception Handling (e.g. Null Pointer exception on User Not found)
+    - Custom Error Message (e.g. User Already Exists, Invalid Credentials…)
+	- Client-Side Validations (e.g. Mandatory Requirements, email format…)
+    - Responsive Application
+    - Display of Validation errors
 
 ## Security Features: 
-	-Password Hashing for storage in database using (Bcrypt-HashSalt) – (Server Side)
-	-JWT Token Authentication
-    -Spring Security
-	-Password Encryption using AES-CBC – (Application Layer)
-	-Authorization Guard
-    -JWT Token Interception
-    -Error Interception
+	- Password Hashing for storage in database using (Bcrypt-HashSalt) – (Server Side)
+	- JWT Token Authentication
+    - Spring Security
+	- Password Encryption using AES-CBC – (Application Layer)
+	- Authorization Guard
+    - JWT Token Interception
+    - Error Interception
 
 ## API Documentation:
  - https://app.swaggerhub.com/apis-docs/YashJainHSR/DemoTrack/1.0.0
