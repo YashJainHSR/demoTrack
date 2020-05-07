@@ -1,0 +1,6 @@
+[submodule "demoTrack-Angular-UI"]
+	path = demoTrack-Angular-UI
+	url = https://github.com/YashJainHSR/demoTrack-Angular-UI
+[submodule "demoTrack-Springboot-Java-APIs"]
+	path = demoTrack-Springboot-Java-APIs
+	url = https://github.com/YashJainHSR/demoTrack-Springboot-Java-APIs
